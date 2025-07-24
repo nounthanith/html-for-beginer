@@ -17,8 +17,7 @@ function Step1() {
         <div className="pl-0 sm:pl-14">
           <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-4 text-sm sm:text-base">
             HTML (HyperText Markup Language)
-            គឺជាភាសាសំខាន់សម្រាប់បង្កើតគេហទំព័រ។
-            វាជាក្របខ័ណ្ឌសម្រាប់រៀបចំនិងបង្ហាញខ្លឹមសារនៅលើអ៊ីនធឺណិត។
+            គឺជាភាសាសំខាន់សម្រាប់បង្កើតគេហទំព័រ។ ដើម្បីបង្ហាញ Content អ្វីមួយទៅលើ<b>Internet</b>(Website)។
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mt-6">

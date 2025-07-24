@@ -26,14 +26,14 @@ function Step2() {
           ២
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
-          រចនាសម្ព័ន្ធមូលដ្ឋាន
+          រចនាសម្ព័ន្ធមូលដ្ឋានរបស់ HTML
         </h2>
       </div>
 
       {/* Content Section */}
       <div className="pl-0 sm:pl-11 md:pl-14">
         <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-          ឯកសារ HTML មួយត្រូវបានសាងសង់ឡើងដោយធាតុគ្រឹះមួយចំនួន៖
+          ឯកសារ HTML មួយត្រូវបានសាងសង់ឡើងដោយធាតុគ្រឹះមួយចំនួនដូចខាងក្រោម៖
         </p>
 
         <div className="flex flex-col gap-4 sm:gap-6 md:grid md:grid-cols-2">
@@ -103,10 +103,10 @@ function Step2() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">
-                  អនុសាសន៍
+                  ចំំំណាំ
                 </h3>
                 <p className="mt-1 text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
-                  តែងតែដាក់ស្លាក{" "}
+                  ត្រូវតែដាក់ប<b>Tag</b>{" "}
                   <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded dark:text-white">
                     &lt;meta charset="UTF-8"&gt;
                   </code>{" "}
@@ -115,6 +115,19 @@ function Step2() {
                     &lt;head&gt;
                   </code>{" "}
                   ដើម្បីធានាថាអក្សរខ្មែរបង្ហាញត្រឹមត្រូវ។
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+              <div className="bg-blue-100 text-blue-800 p-2 rounded-lg w-10 h-10 flex-shrink-0 flex items-center justify-center">
+                <FiClock className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">
+                  មធ្យោបាយលើន(Shot Key)
+                </h3>
+                <p className="mt-1 text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
+                  អ្នកអាចវាយ <b>Shift + 1</b>រួចហើយចុច <b>Inter</b>។
                 </p>
               </div>
             </div>

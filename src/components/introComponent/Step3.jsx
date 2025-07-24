@@ -22,15 +22,14 @@ function Step3() {
           ៣
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-          <FiList className="text-blue-600" />
-          ស្លាក HTML ទូទៅ
+          Tag HTML ទូទៅ
         </h2>
       </div>
 
       {/* Content */}
       <div className="pl-0 sm:pl-11 md:pl-14">
         <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-          ខាងក្រោមនេះគឺជាស្លាក HTML មួយចំនួនដែលគេប្រើញឹកញាប់៖
+          ខាងក្រោមនេះគឺជា <b>Tag</b> HTML មួយចំនួនដែលគេប្រើញឹកញាប់៖
         </p>
 
         <div className="grid gap-6 md:grid-cols-2">
