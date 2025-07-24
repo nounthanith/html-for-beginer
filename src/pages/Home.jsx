@@ -3,7 +3,7 @@ import Introduction from '../components/Introduction'
 
 function Home() {
   return (
-    <div>
+    <div className='mt-20'>
         <Introduction />
     </div>
   )

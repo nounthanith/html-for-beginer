@@ -1,10 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FiEdit3 } from "react-icons/fi";
 
-function Step4() {
-  const fullHtmlExample = `<!DOCTYPE html>
+// Content constants
+const CONTENT = {
+  title: "ឧទាហរណ៍ពេញលេញ",
+  description: "ខាងក្រោមនេះគឺជាឧទាហរណ៍ឯកសារ HTML ពេញលេញដែលប្រើអក្សរខ្មែរ៖",
+  fullHtmlExample: `<!DOCTYPE html>
 <html lang="km">
 <head>
     <meta charset="UTF-8">
@@ -29,56 +33,160 @@ function Step4() {
         <a href="https://example.com">ចុចទីនេះ</a>
     </p>
 </body>
-</html>`;
+</html>`,
+  exercise: {
+    title: "លំហាត់",
+    description: "សូមបង្កើតឯកសារ HTML ថ្មីមួយដោយធ្វើតាមគំរូខាងលើ ហើយផ្លាស់ប្តូរខ្លឹមសារទៅជាព័ត៌មានរបស់អ្នកផ្ទាល់។"
+  },
+  structure: {
+    title: "រចនាសម្ព័ន្ធឯកសារ HTML",
+    items: [
+      "DOCTYPE declaration - កំណត់ប្រភេទឯកសារ",
+      "html element - ធាតុឫសគល់",
+      "head section - ព័ត៌មានមេតាដា",
+      "body section - ខ្លឹមសារដែលមើលឃើញ",
+      "អក្សរខ្មែរ - ប្រើ UTF-8 encoding"
+    ]
+  }
+};
 
+// Animation constants
+const ANIMATIONS = {
+  fadeIn: {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  },
+  stagger: {
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+};
+
+function Step4() {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
-      {/* Header */}
-      <div className="flex items-center mb-4 sm:mb-6">
-        <div className="bg-primary text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-lg sm:text-xl font-bold mr-3 sm:mr-4">
-          ៤
+    <motion.div 
+      className="max-w-4xl mx-auto"
+      initial="hidden"
+      animate="visible"
+      variants={ANIMATIONS.stagger}
+    >
+      {/* Step Header */}
+      <motion.div 
+        className="flex items-center mb-8"
+        variants={ANIMATIONS.fadeIn}
+      >
+        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4 shadow-lg">
+          <span className="drop-shadow-md">៤</span>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
-          ឧទាហរណ៍ពេញលេញ
-        </h2>
-      </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+            {CONTENT.title}
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mt-2"></div>
+        </div>
+      </motion.div>
 
-      {/* Content */}
-      <div className="pl-0 sm:pl-11 md:pl-14">
-        <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-          ខាងក្រោមនេះគឺជាឧទាហរណ៍ឯកសារ HTML ពេញលេញដែលប្រើអក្សរខ្មែរ៖
-        </p>
-
-        {/* Syntax Highlighter Block */}
-        <div className="overflow-x-auto rounded-xl">
-          <SyntaxHighlighter
-            language="html"
-            style={oneDark}
-            customStyle={{
-              borderRadius: "0.75rem",
-              fontSize: "0.9rem",
-              padding: "1.5rem",
-              background: "#282c34",
-            }}
-            wrapLines={true}
-            wrapLongLines={true}
+      {/* Main Content */}
+      <motion.div 
+        className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl"
+        whileHover={{ y: -5 }}
+        variants={ANIMATIONS.fadeIn}
+      >
+        <div className="pl-0 sm:pl-4">
+          <motion.p 
+            className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-base sm:text-lg"
+            variants={ANIMATIONS.fadeIn}
           >
-            {fullHtmlExample}
-          </SyntaxHighlighter>
-        </div>
+            {CONTENT.description}
+          </motion.p>
 
-        {/* Exercise Card */}
-        <div className="mt-6 bg-green-50 dark:bg-green-100 p-4 rounded-lg border border-green-200 dark:border-green-300 flex gap-3 items-start">
-          <FiEdit3 className="text-green-700 text-lg mt-1" />
-          <div>
-            <h3 className="font-semibold text-green-800 mb-2">លំហាត់</h3>
-            <p className="text-green-700 text-sm">
-              សូមបង្កើតឯកសារ HTML ថ្មីមួយដោយធ្វើតាមគំរូខាងលើ ហើយផ្លាស់ប្តូរខ្លឹមសារទៅជាព័ត៌មានរបស់អ្នកផ្ទាល់។
-            </p>
-          </div>
+          <motion.div 
+            className="grid md:grid-cols-2 gap-6 mt-8"
+            variants={ANIMATIONS.stagger}
+          >
+            {/* Code Block */}
+            <motion.div 
+              className="overflow-x-auto"
+              variants={ANIMATIONS.fadeIn}
+            >
+              <SyntaxHighlighter
+                language="html"
+                style={oneDark}
+                customStyle={{
+                  borderRadius: "0.75rem",
+                  fontSize: "0.85rem",
+                  padding: "1.25rem",
+                  background: "#282c34",
+                  margin: 0
+                }}
+                wrapLines={true}
+                wrapLongLines={true}
+              >
+                {CONTENT.fullHtmlExample}
+              </SyntaxHighlighter>
+            </motion.div>
+
+            {/* Right Column */}
+            <motion.div 
+              className="space-y-6"
+              variants={ANIMATIONS.fadeIn}
+            >
+              {/* Structure Card */}
+              <motion.div 
+                className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/20 p-5 rounded-xl border border-purple-100 dark:border-purple-900/50 shadow-md hover:shadow-lg transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                variants={ANIMATIONS.fadeIn}
+              >
+                <div className="flex items-center mb-3">
+                  <div className="bg-purple-100 dark:bg-purple-900/50 p-2 rounded-lg mr-3">
+                    <svg className="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-purple-800 dark:text-purple-200">
+                    {CONTENT.structure.title}
+                  </h3>
+                </div>
+                <ul className="pl-11 space-y-2 text-purple-700 dark:text-purple-300 text-sm">
+                  {CONTENT.structure.items.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="inline-block bg-purple-200 dark:bg-purple-900/40 rounded-full w-1.5 h-1.5 mt-2 mr-2"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Exercise Card */}
+              <motion.div 
+                className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/20 p-5 rounded-xl border border-green-100 dark:border-green-900/50 shadow-md hover:shadow-lg transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                variants={ANIMATIONS.fadeIn}
+              >
+                <div className="flex items-center mb-3">
+                  <div className="bg-green-100 dark:bg-green-900/50 p-2 rounded-lg mr-3">
+                    <FiEdit3 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  </div>
+                  <h3 className="text-lg font-bold text-green-800 dark:text-green-200">
+                    {CONTENT.exercise.title}
+                  </h3>
+                </div>
+                <p className="text-green-700 dark:text-green-300 text-sm pl-11">
+                  {CONTENT.exercise.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

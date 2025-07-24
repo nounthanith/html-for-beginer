@@ -1,140 +1,214 @@
 import React from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { FiInfo, FiClock } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiCode, FiCheckCircle, FiAlertTriangle, FiClock } from "react-icons/fi";
 
-function Step2() {
-  const structureExample = `<html>
-<head>
-    <!-- Metadata that isn't displayed -->
+// Content constants
+const CONTENT = {
+  title: "រចនាសម្ព័ន្ធមូលដ្ឋានរបស់ HTML",
+  description: "ឯកសារ HTML មួយត្រូវបានសាងសង់ឡើងដោយធាតុគ្រឹះសំខាន់ៗដូចខាងក្រោម៖",
+  structureExample: `<!DOCTYPE html>
+<html lang="km">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
-</head>
-<body>
-    <!-- Content visible to users -->
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
-</body>
-</html>`;
+    <title>ទំព័រឧទាហរណ៍</title>
+  </head>
+  <body>
+    <h1>សួស្តីពិភពលោក!</h1>
+    <p>នេះគឺជាកថាខណ្ឌដំបូងរបស់ខ្ញុំ។</p>
+  </body>
+</html>`,
+  htmlElements: [
+    {
+      tag: "<!DOCTYPE html>",
+      description: "កំណត់ប្រភេទឯកសារជា HTML5"
+    },
+    {
+      tag: "<html>",
+      description: "ធាតុឫសគល់នៃទំព័រ"
+    },
+    {
+      tag: "<head>",
+      description: "សម្រាបភ្ជាប់ Link Meta Data ឬ Script"
+    },
+    {
+      tag: "<body>",
+      description: "សម្រាប់បង្ហាញ Content ទៅអ្នកប្រើប្រាស់"
+    }
+  ],
+  notes: {
+    important: {
+      title: "ចំណាំសំខាន់",
+      content: "ត្រូវប្រាឋថាអ្នកបិទធាតុទាំងអស់ឱ្យបានត្រឹមត្រូវ និងរក្សារចនាសម្ព័ន្ធដែលត្រឹមត្រូវ។"
+    },
+    reminder: {
+      title: "ចំណាំ",
+      content: "ត្រូវតែដាក់ប <b>Tag</b> <code>&lt;meta charset=\"UTF-8\"&gt;</code> នៅក្នុង <code>&lt;head&gt;</code> ដើម្បីធានាថាអក្សរខ្មែរបង្ហាញត្រឹមត្រូវ។"
+    }
+  }
+};
 
+// Animation constants
+const ANIMATIONS = {
+  fadeIn: {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  },
+  stagger: {
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+};
+
+function Step2() {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
-      {/* Header Section */}
-      <div className="flex items-center mb-4 sm:mb-6">
-        <div className="bg-blue-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-lg sm:text-xl font-bold mr-3 sm:mr-4">
-          ២
+    <motion.div 
+      id="step2"
+      className="max-w-4xl mx-auto"
+      initial="hidden"
+      animate="visible"
+      variants={ANIMATIONS.stagger}
+    >
+      {/* Step Header */}
+      <motion.div 
+        className="flex items-center mb-8"
+        variants={ANIMATIONS.fadeIn}
+      >
+        <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4 shadow-lg">
+          <span className="drop-shadow-md">២</span>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
-          រចនាសម្ព័ន្ធមូលដ្ឋានរបស់ HTML
-        </h2>
-      </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+            {CONTENT.title}
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mt-2"></div>
+        </div>
+      </motion.div>
 
-      {/* Content Section */}
-      <div className="pl-0 sm:pl-11 md:pl-14">
-        <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-          ឯកសារ HTML មួយត្រូវបានសាងសង់ឡើងដោយធាតុគ្រឹះមួយចំនួនដូចខាងក្រោម៖
-        </p>
+      {/* Main Content */}
+      <motion.div 
+        className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl"
+        whileHover={{ y: -5 }}
+        variants={ANIMATIONS.fadeIn}
+      >
+        <div className="pl-0 sm:pl-4">
+          <motion.p 
+            className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-base sm:text-lg"
+            variants={ANIMATIONS.fadeIn}
+          >
+            {CONTENT.description}
+          </motion.p>
 
-        <div className="flex flex-col gap-4 sm:gap-6 md:grid md:grid-cols-2">
-          {/* Code Block */}
-          <div className="overflow-x-auto">
-            <SyntaxHighlighter
-              language="html"
-              style={oneDark}
-              customStyle={{
-                borderRadius: "0.5rem",
-                fontSize: "0.8rem",
-                padding: "1rem",
-                background: "#282c34",
-                margin: 0,
-              }}
-              wrapLines={true}
-              wrapLongLines={true}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Code Example */}
+            <motion.div
+              className="group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/30 dark:to-gray-800/20 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+              whileHover={{ scale: 1.01 }}
+              variants={ANIMATIONS.fadeIn}
             >
-              {structureExample}
-            </SyntaxHighlighter>
+              <div className="flex items-center mb-4">
+                <div className="bg-purple-100 dark:bg-purple-900/50 p-2 rounded-lg mr-3">
+                  <FiCode className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                  គំរូកូដ HTML
+                </h3>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-3 sm:p-4 overflow-x-auto">
+                <pre className="text-xs sm:text-sm text-gray-300 font-mono">
+                  <code>
+                    {CONTENT.structureExample.split("\n").map((line, i) => (
+                      <div key={i} className="flex whitespace-pre">
+                        <span className="text-gray-500 w-6 sm:w-8 flex-shrink-0 inline-block">
+                          {i + 1}
+                        </span>
+                        <span className="text-blue-400 flex-1 overflow-x-auto">
+                          {line}
+                        </span>
+                      </div>
+                    ))}
+                  </code>
+                </pre>
+              </div>
+            </motion.div>
+
+            {/* HTML Elements */}
+            <motion.div 
+              className="space-y-4"
+              variants={ANIMATIONS.stagger}
+            >
+              {CONTENT.htmlElements.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="group bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/10 p-4 rounded-xl border border-purple-100 dark:border-purple-900/30 shadow-sm hover:shadow-md transition-all duration-200"
+                  whileHover={{ x: 5 }}
+                  variants={ANIMATIONS.fadeIn}
+                >
+                  <div className="flex items-start">
+                    <div className="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-lg mr-3 mt-0.5">
+                      <FiCheckCircle className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <div>
+                      <code className="font-mono bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 px-2 py-1 rounded text-sm">
+                        {item.tag}
+                      </code>
+                      <p className="mt-2 text-gray-700 dark:text-gray-300 text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
 
-          {/* Tips Section */}
-          <div className="space-y-3 sm:space-y-4">
-            {/* Important Parts */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <div className="bg-yellow-100 text-yellow-800 p-2 rounded-lg w-10 h-10 flex-shrink-0 flex items-center justify-center">
-                <FiInfo className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">
-                  ផ្នែកសំខាន់ៗ
-                </h3>
-                <ul className="mt-1 text-gray-700 dark:text-gray-200 space-y-1 list-disc pl-5 text-xs sm:text-sm">
-                  <li>
-                    <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">
-                      &lt;!DOCTYPE html&gt;
-                    </code>{" "}
-                    - កំណត់ប្រភេទឯកសារ
-                  </li>
-                  <li>
-                    <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">
-                      &lt;html&gt;
-                    </code>{" "}
-                    - ឫសគល់នៃទំព័រ
-                  </li>
-                  <li>
-                    <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">
-                      &lt;head&gt;
-                    </code>{" "}
-                    - ព័ត៌មានមេតាដា
-                  </li>
-                  <li>
-                    <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">
-                      &lt;body&gt;
-                    </code>{" "}
-                    - ខ្លឹមសារបង្ហាញ
-                  </li>
-                </ul>
+          {/* Important Notes */}
+          <motion.div
+            className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700"
+            variants={ANIMATIONS.fadeIn}
+          >
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <FiAlertTriangle className="h-5 w-5 text-yellow-400" />
+                </div>
+                <div className="ml-3">
+                  <h3 className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
+                    {CONTENT.notes.important.title}
+                  </h3>
+                  <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
+                    <p>{CONTENT.notes.important.content}</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Recommendation */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <div className="bg-blue-100 text-blue-800 p-2 rounded-lg w-10 h-10 flex-shrink-0 flex items-center justify-center">
+            {/* Extra Reminder */}
+            <div className="mt-4 flex items-start">
+              <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 p-2 rounded-lg w-10 h-10 flex-shrink-0 flex items-center justify-center">
                 <FiClock className="w-5 h-5" />
               </div>
-              <div>
+              <div className="ml-4">
                 <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">
-                  ចំំំណាំ
+                  {CONTENT.notes.reminder.title}
                 </h3>
-                <p className="mt-1 text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
-                  ត្រូវតែដាក់ប<b>Tag</b>{" "}
-                  <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded dark:text-white">
-                    &lt;meta charset="UTF-8"&gt;
-                  </code>{" "}
-                  នៅក្នុង{" "}
-                  <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded dark:text-white">
-                    &lt;head&gt;
-                  </code>{" "}
-                  ដើម្បីធានាថាអក្សរខ្មែរបង្ហាញត្រឹមត្រូវ។
-                </p>
+                <p 
+                  className="mt-1 text-gray-700 dark:text-gray-200 text-xs sm:text-sm"
+                  dangerouslySetInnerHTML={{ __html: CONTENT.notes.reminder.content }}
+                />
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <div className="bg-blue-100 text-blue-800 p-2 rounded-lg w-10 h-10 flex-shrink-0 flex items-center justify-center">
-                <FiClock className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">
-                  មធ្យោបាយលើន(Shot Key)
-                </h3>
-                <p className="mt-1 text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
-                  អ្នកអាចវាយ <b>Shift + 1</b>រួចហើយចុច <b>Inter</b>។
-                </p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
