@@ -6,7 +6,7 @@ import { FiEdit3 } from "react-icons/fi";
 
 // Content constants
 const CONTENT = {
-  title: "ឧទាហរណ៍ពេញលេញ",
+  title: "ការអនុវត្តបង្កើត Website ផ្ទាល់ខ្លួន",
   description: "ខាងក្រោមនេះគឺជាឧទាហរណ៍ឯកសារ HTML ពេញលេញដែលប្រើអក្សរខ្មែរ៖",
   fullHtmlExample: `<!DOCTYPE html>
 <html lang="km">
@@ -22,7 +22,7 @@ const CONTENT = {
     <h2>អំពីខ្ញុំ</h2>
     <p>ខ្ញុំកំពុងរៀនពីរបៀបបង្កើតគេហទំព័រ។</p>
     
-    <h3>ចំណង់ចំណូលចិត្ត</h3>
+    <h3>ចំណង់ចំណូលចិត្ត៖</h3>
     <ul>
         <li>ការអភិវឌ្ឍគេហទំព័រ</li>
         <li>ការសរសេរកម្មវិធី</li>
@@ -41,10 +41,10 @@ const CONTENT = {
   structure: {
     title: "រចនាសម្ព័ន្ធឯកសារ HTML",
     items: [
-      "DOCTYPE declaration - កំណត់ប្រភេទឯកសារ",
-      "html element - ធាតុឫសគល់",
-      "head section - ព័ត៌មានមេតាដា",
-      "body section - ខ្លឹមសារដែលមើលឃើញ",
+      "<!DOCTYPE html> - កំណត់ប្រភេទឯកសារជាប្រភេទ HTML",
+      "html element - ធាតុដំបូងសំខាន់សម្រាប់សរសេរកូដ HTML",
+      "head section - សម្រាប់ដាក់ link meta និង title",
+      "body section - ខ្លឹមសារដែលអាចឲ្យគេមើលាបាន",
       "អក្សរខ្មែរ - ប្រើ UTF-8 encoding"
     ]
   }
@@ -72,6 +72,7 @@ const ANIMATIONS = {
 function Step4() {
   return (
     <motion.div 
+      id="step4"
       className="max-w-4xl mx-auto"
       initial="hidden"
       animate="visible"

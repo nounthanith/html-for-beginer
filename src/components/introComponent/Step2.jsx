@@ -25,11 +25,11 @@ const CONTENT = {
     },
     {
       tag: "<html>",
-      description: "ធាតុឫសគល់នៃទំព័រ"
+      description: "ជា tag ដំបូងសំខាន់សម្រាប់សរសេរកូដ HTML"
     },
     {
       tag: "<head>",
-      description: "សម្រាបភ្ជាប់ Link Meta Data ឬ Script"
+      description: "ជា tag ដំបូងសំខាន់សម្រាប់ដាក់ meta link និង title"
     },
     {
       tag: "<body>",
@@ -39,12 +39,8 @@ const CONTENT = {
   notes: {
     important: {
       title: "ចំណាំសំខាន់",
-      content: "ត្រូវប្រាឋថាអ្នកបិទធាតុទាំងអស់ឱ្យបានត្រឹមត្រូវ និងរក្សារចនាសម្ព័ន្ធដែលត្រឹមត្រូវ។"
+      content: "ត្រូវប្រាកដថាអ្នកបិទ tag ទាំងអស់ឱ្យបានត្រឹមត្រូវ Example: <tagname> Content </tagname>។"
     },
-    reminder: {
-      title: "ចំណាំ",
-      content: "ត្រូវតែដាក់ប <b>Tag</b> <code>&lt;meta charset=\"UTF-8\"&gt;</code> នៅក្នុង <code>&lt;head&gt;</code> ដើម្បីធានាថាអក្សរខ្មែរបង្ហាញត្រឹមត្រូវ។"
-    }
   }
 };
 
@@ -187,22 +183,6 @@ function Step2() {
                     <p>{CONTENT.notes.important.content}</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Extra Reminder */}
-            <div className="mt-4 flex items-start">
-              <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 p-2 rounded-lg w-10 h-10 flex-shrink-0 flex items-center justify-center">
-                <FiClock className="w-5 h-5" />
-              </div>
-              <div className="ml-4">
-                <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">
-                  {CONTENT.notes.reminder.title}
-                </h3>
-                <p 
-                  className="mt-1 text-gray-700 dark:text-gray-200 text-xs sm:text-sm"
-                  dangerouslySetInnerHTML={{ __html: CONTENT.notes.reminder.content }}
-                />
               </div>
             </div>
           </motion.div>

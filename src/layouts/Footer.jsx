@@ -63,6 +63,22 @@ const Footer = () => {
                   មេរៀនទី៣ - Tag HTML ទូទៅ
                 </a>
               </li>
+              <li>
+                <a
+                  href="#step4"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors"
+                >
+                  មេរៀនទី៤ -  ការអនុវត្តបង្កើត Website ផ្ទាល់ខ្លួន
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#step5"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors"
+                >
+                  មេរៀនទី៥ -  ការបង្កើតតារាង (Table)
+                </a>
+              </li>
             </ul>
           </div>
 

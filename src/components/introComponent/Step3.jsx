@@ -18,7 +18,7 @@ const CONTENT = {
     <li>List item 2</li>
 </ul>`,
   importantTags: {
-    title: "Tag HTML សំខាន់ៗមួយចំនួន",
+    title: "Tag HTML សំខាន់ៗមួយចំនួន៖",
     tags: [
       {
         category: "ចំណងជើង",

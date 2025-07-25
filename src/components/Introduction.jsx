@@ -5,6 +5,7 @@ import Step1 from "./introComponent/Step1";
 import Step2 from "./introComponent/Step2";
 import Step3 from "./introComponent/Step3";
 import Step4 from "./introComponent/Step4";
+import Step5 from "./introComponent/Step5";
 
 function Introduction() {
   return (
@@ -33,6 +34,9 @@ function Introduction() {
 
       {/* Step 4 */}
       <Step4 />
+
+      {/* Step 5 */}
+      <Step5 />
     </div>
   );
 }
